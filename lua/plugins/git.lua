@@ -11,4 +11,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
   },
+  {
+    "Almo7aya/openingh.nvim",
+  },
 }
