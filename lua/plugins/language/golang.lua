@@ -1,3 +1,26 @@
+-- Get git root directory
+local function get_git_root()
+  local git_root = vim.fn.system("git rev-parse --show-toplevel 2>/dev/null")
+  if vim.v.shell_error == 0 then
+    return vim.fn.trim(git_root)
+  end
+  return nil
+end
+
+local function custom_on_init()
+  local project_root = get_git_root()
+  local f = io.open(project_root .. "/tools/bazel/gopackagesdriver.sh", "r")
+  if f ~= nil then
+    io.close(f)
+    local gopackagesdriver = vim.fn.expand(project_root .. "/tools/bazel/gopackagesdriver.sh")
+    vim.fn.setenv("GOPACKAGESDRIVER", gopackagesdriver)
+    vim.notify("GOPACKAGESDRIVER set to " .. gopackagesdriver, vim.log.levels.INFO)
+  else
+    vim.fn.setenv("GOPACKAGESDRIVER", "")
+    vim.notify("GOPACKAGESDRIVER unset", vim.log.levels.INFO)
+  end
+end
+
 local opts = {
   "ray-x/go.nvim",
   dependencies = {
@@ -8,16 +31,6 @@ local opts = {
   version = "v0.10.0",
   event = { "CmdlineEnter" },
   ft = { "go", "gomod" },
-  on_init = function()
-    local f = io.open("./tools/bazel/gopackagesdriver.sh", "r")
-    if f ~= nil then
-      io.close(f)
-      dir = vim.fn.getcwd()
-      vim.fn.setenv("GOPACKAGESDRIVER", dir .. "/tools/bazel/gopackagesdriver.sh")
-    else
-      vim.fn.setenv("GOPACKAGESDRIVER", "")
-    end
-  end,
   build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   config = function()
     require("go").setup({
@@ -25,6 +38,7 @@ local opts = {
         enable = true,
       },
       lsp_cfg = {
+        on_init = custom_on_init,
         settings = {
           gopls = {
             usePlaceholders = false,
