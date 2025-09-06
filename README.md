@@ -5,7 +5,7 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 
 # Installation of tools not handled by lazy.nvim / mason
 
-## Neovim node package
+#### Neovim node package
 
 The neovim node package provides Node.js client support for Neovim's remote API, which is commonly used by:
 • Neovim plugins that need Node.js functionality
@@ -15,6 +15,10 @@ The neovim node package provides Node.js client support for Neovim's remote API,
 `npm install -g neovim`
 
 If you run `:checkhealth` it will warn if this is not installed.
+
+#### fzf
+
+`brew install fzf`
 
 # Configuration
 
