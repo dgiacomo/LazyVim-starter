@@ -3,6 +3,19 @@
 A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
 
+# Installation of tools not handled by lazy.nvim / mason
+
+## Neovim node package
+
+The neovim node package provides Node.js client support for Neovim's remote API, which is commonly used by:
+• Neovim plugins that need Node.js functionality
+• Language servers and completion engines
+• Various Neovim integrations that communicate with Node.js processes
+
+`npm install -g neovim`
+
+If you run `:checkhealth` it will warn if this is not installed.
+
 # Configuration
 
 There is a `lua/config` directory that has a place to set
