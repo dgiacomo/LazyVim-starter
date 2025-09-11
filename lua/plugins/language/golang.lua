@@ -9,6 +9,7 @@ end
 
 local function custom_on_init()
   local project_root = get_git_root()
+  vim.notify("in custom_on_init " .. project_root, vim.log.levels.INFO)
   local f = io.open(project_root .. "/tools/bazel/gopackagesdriver.sh", "r")
   if f ~= nil then
     io.close(f)
@@ -16,7 +17,7 @@ local function custom_on_init()
     vim.fn.setenv("GOPACKAGESDRIVER", gopackagesdriver)
     vim.notify("GOPACKAGESDRIVER set to " .. gopackagesdriver, vim.log.levels.INFO)
   else
-    vim.fn.setenv("GOPACKAGESDRIVER", "")
+    vim.fn.setenv("GOPACKAGESDRIVER", nil)
     vim.notify("GOPACKAGESDRIVER unset", vim.log.levels.INFO)
   end
 end
