@@ -20,6 +20,11 @@ If you run `:checkhealth` it will warn if this is not installed.
 
 `brew install fzf`
 
+#### checkhealth
+
+`npm install -g tree-sitter-cli` : used for generating parsers from grammar definitions
+missing image conversion tools
+
 # Configuration
 
 There is a `lua/config` directory that has a place to set
