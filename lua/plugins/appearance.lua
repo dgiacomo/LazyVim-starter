@@ -11,17 +11,17 @@ return {
     "folke/trouble.nvim",
   },
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
   },
   {
     -- move a selection any direction
-    "echasnovski/mini.move",
+    "nvim-mini/mini.move",
   },
   {
-    "echasnovski/mini.pairs",
+    "nvim-mini/mini.pairs",
   },
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
   },
   {
     -- status column - clickable fold, etc
