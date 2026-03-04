@@ -26,6 +26,7 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
       -- For major updates, this must be adjusted manually.
       version = '^1.0.0',
     },
+    { 'nvim-telescope/telescope-github.nvim' },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -90,6 +91,7 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
     pcall(require('telescope').load_extension, 'live_grep_args')
+    pcall(require('telescope').load_extension, 'gh')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -129,6 +131,13 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
         prompt_title = 'Live Grep in Open Files',
       }
     end, { desc = '[S]earch [/] in Open Files' })
+
+    -- GitHub extension keymaps (requires `gh` CLI)
+    local gh = require('telescope').extensions.gh
+    vim.keymap.set('n', '<leader>ghi', gh.issues, { desc = '[G]it[H]ub [I]ssues' })
+    vim.keymap.set('n', '<leader>ghp', gh.pull_request, { desc = '[G]it[H]ub [P]ull Requests' })
+    vim.keymap.set('n', '<leader>ghg', gh.gist, { desc = '[G]it[H]ub [G]ists' })
+    vim.keymap.set('n', '<leader>ghr', gh.run, { desc = '[G]it[H]ub Workflow [R]uns' })
 
     -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>sn', function()

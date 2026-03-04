@@ -20,6 +20,15 @@ If you run `:checkhealth` it will warn if this is not installed.
 
 `brew install fzf`
 
+#### GitHub CLI (required for telescope-github.nvim)
+
+Install the [GitHub CLI](https://github.com/cli/cli#installation) and authenticate:
+
+```sh
+brew install gh
+gh auth login
+```
+
 #### checkhealth
 
 `npm install -g tree-sitter-cli` : used for generating parsers from grammar definitions
