@@ -27,6 +27,7 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
       version = '^1.0.0',
     },
     { 'nvim-telescope/telescope-github.nvim' },
+    { 'nvim-telescope/telescope-frecency.nvim' },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -92,6 +93,7 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'ui-select')
     pcall(require('telescope').load_extension, 'live_grep_args')
     pcall(require('telescope').load_extension, 'gh')
+    pcall(require('telescope').load_extension, 'frecency')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -99,6 +101,7 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>st', builtin.help_tags, { desc = '[S]earch Help [T]ags' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+    vim.keymap.set('n', '<leader>sF', "<cmd>Telescope frecency workspace=CWD<CR>", { desc = '[S]earch [F]recency' })
     vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
