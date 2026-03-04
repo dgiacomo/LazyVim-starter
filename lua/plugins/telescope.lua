@@ -31,6 +31,7 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-telescope/telescope-file-browser.nvim' },
     { 'nvim-telescope/telescope-dap.nvim' },
     { 'nvim-telescope/telescope-symbols.nvim' },
+    { 'nvim-telescope/telescope-media-files.nvim' },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -88,6 +89,10 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
         file_browser = {
           hidden = true,
         },
+        media_files = {
+          filetypes = { 'png', 'jpg', 'jpeg', 'gif', 'mp4', 'webm', 'pdf' },
+          find_cmd = 'rg',
+        },
       },
     }
 
@@ -99,6 +104,7 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'frecency')
     pcall(require('telescope').load_extension, 'file_browser')
     pcall(require('telescope').load_extension, 'dap')
+    pcall(require('telescope').load_extension, 'media_files')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -115,6 +121,7 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader>sz', builtin.spell_suggest, { desc = '[S]pelling Suggestions' })
     vim.keymap.set('n', '<leader>se', "<cmd>Telescope symbols<CR>", { desc = '[S]earch [E]mojis/Symbols' })
+    vim.keymap.set('n', '<leader>sm', "<cmd>Telescope media_files<CR>", { desc = '[S]earch [M]edia Files' })
     vim.keymap.set('n', '<leader>sqh', builtin.quickfixhistory, { desc = '[H]istory' })
     vim.keymap.set('n', '<leader>sqo', builtin.quickfix, { desc = '[O]pen quickfix list' })
     vim.keymap.set('n', '<leader>sql', builtin.loclist, { desc = 'View locList' })
