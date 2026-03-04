@@ -29,6 +29,7 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-telescope/telescope-github.nvim' },
     { 'nvim-telescope/telescope-frecency.nvim' },
     { 'nvim-telescope/telescope-file-browser.nvim' },
+    { 'nvim-telescope/telescope-dap.nvim' },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -96,6 +97,7 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'gh')
     pcall(require('telescope').load_extension, 'frecency')
     pcall(require('telescope').load_extension, 'file_browser')
+    pcall(require('telescope').load_extension, 'dap')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -146,6 +148,10 @@ local opts = { -- Fuzzy Finder (files, lsp, etc)
 
     -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>sb', "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", { desc = '[S]earch File [B]rowser' })
+    vim.keymap.set('n', '<leader>dsc', "<cmd>Telescope dap commands<CR>", { desc = '[D]AP [S]earch [C]ommands' })
+    vim.keymap.set('n', '<leader>dsb', "<cmd>Telescope dap list_breakpoints<CR>", { desc = '[D]AP [S]earch [B]reakpoints' })
+    vim.keymap.set('n', '<leader>dsv', "<cmd>Telescope dap variables<CR>", { desc = '[D]AP [S]earch [V]ariables' })
+    vim.keymap.set('n', '<leader>dsf', "<cmd>Telescope dap frames<CR>", { desc = '[D]AP [S]earch [F]rames' })
 
     -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>sn', function()
