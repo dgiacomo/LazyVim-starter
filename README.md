@@ -29,6 +29,24 @@ brew install gh
 gh auth login
 ```
 
+#### diagram.nvim (diagram rendering in terminal)
+
+`diagram.nvim` renders diagrams inline in the terminal using [image.nvim](https://github.com/3rd/image.nvim), which requires either the [Kitty](https://github.com/kovidgoyal/kitty) terminal or [Überzug++](https://github.com/jstkdng/ueberzugpp).
+
+Install CLI tools for the renderers you want to use:
+
+```sh
+# Mermaid
+npm install -g @mermaid-js/mermaid-cli
+
+brew install d2
+brew install gnuplot
+brew install imagemagick
+brew install jstkdng/programs/ueberzugpp
+```
+
+Use `<leader>md` in a markdown file to open a rendered diagram from the code block at cursor.
+
 #### checkhealth
 
 `npm install -g tree-sitter-cli` : used for generating parsers from grammar definitions
@@ -43,7 +61,7 @@ Autocmds and keymaps loaded on the VeryLazy event. Options are automatically loa
 - `autocmds`: [Default autocmds](https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua)
 - `keymaps`: [Default keymaps](https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua)
 
-* `lazy`: Config for lazy.nvim itself. Can set lazyload, always use latest versions, disable specific plugins, set available colorschemes, check for plugin updates and notify when there is something new
-* `options`: [Default options](https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua)
+- `lazy`: Config for lazy.nvim itself. Can set lazyload, always use latest versions, disable specific plugins, set available colorschemes, check for plugin updates and notify when there is something new
+- `options`: [Default options](https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua)
 
 ## Autocmds
