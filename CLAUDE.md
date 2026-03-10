@@ -40,7 +40,6 @@ lua/plugins/
   language/
     golang.lua             # go.nvim with Bazel GOPACKAGESDRIVER auto-detection
     rust.lua               # rustaceanvim
-    typescript.lua         # typescript-tools.nvim
     elixir.lua             # elixir-tools.nvim
 lazyvim.json               # LazyVim extras (AI, DAP, formatting, languages, etc.)
 stylua.toml                # Lua formatter config
