@@ -1,14 +1,17 @@
 <!--toc:start-->
 
+- [Claude.md](#claudemd)
 - [Exploring Typescript setup](#exploring-typescript-setup)
 - [Mermaid Rendering <leader+md>](#mermaid-rendering-leadermd)
 - [Telescope](#telescope)
 - [Claude Code](#claude-code)
+- [DB Plugins - Dadbod and extensions](#db-plugins-dadbod-and-extensions)
+- [Git - vim-fugitive, vim-rhubarb, gitsigns, and copilot](#git-vim-fugitive-vim-rhubarb-gitsigns-and-copilot)
 <!--toc:end-->
 
 ## Claude.md
 
--
+- 02319cc5e05337fbf49baa12279c0c03c57b2334 - add CLAUDE.md
 
 ## Exploring Typescript setup
 
